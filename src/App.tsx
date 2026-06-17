@@ -14,7 +14,7 @@ const App: React.FC = () => {
     return (
         <OrderProvider>
         <ReservationProvider>
-            <BrowserRouter  basename="/Cafe-Website">
+            <BrowserRouter  basename="/Cafe-Website/">
                 <Suspense fallback={
                     <div style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#110e0c', color: '#c68e17', fontFamily: 'Playfair Display, serif', fontSize: '1.5rem' }}>
                         Loading Aura...
