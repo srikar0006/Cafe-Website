@@ -1,14 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useCart } from '../context/useCart';
+import { formatPrice } from '../utils/formatPrice';
 import type { CartItem, MenuItem } from '../types';
-
-const formatPrice = (price: number) =>
-  new Intl.NumberFormat('en-IN', {
-    style: 'currency',
-    currency: 'INR',
-    maximumFractionDigits: 0,
-  }).format(price);
 
 function CartIcon() {
   return (

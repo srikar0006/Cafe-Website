@@ -1,13 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
 import { getMenuItemById } from '../data/menuItems';
 import { useCart } from '../context/useCart';
-
-const formatPrice = (price: number) =>
-  new Intl.NumberFormat('en-IN', {
-    style: 'currency',
-    currency: 'INR',
-    maximumFractionDigits: 0,
-  }).format(price);
+import { formatPrice } from '../utils/formatPrice';
 
 export default function MenuDetailPage() {
   const { itemId } = useParams();

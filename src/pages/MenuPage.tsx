@@ -1,15 +1,9 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import type { MouseEvent } from 'react';
 import { menuCategories, menuItems } from '../data/menuItems';
 import { useCart } from '../context/useCart';
+import { formatPrice } from '../utils/formatPrice';
 import type { MenuItem } from '../types';
-
-const formatPrice = (price: number) =>
-  new Intl.NumberFormat('en-IN', {
-    style: 'currency',
-    currency: 'INR',
-    maximumFractionDigits: 0,
-  }).format(price);
 
 function useEscapeKey(isActive: boolean, onEscape: () => void) {
   useEffect(() => {
@@ -126,7 +120,6 @@ function MenuDetailsModal({ item, onAddToCart, onClose }: MenuDetailsModalProps)
 export default function MenuPage() {
   const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
   const { addToCart } = useCart();
-  const visibleCategories = useMemo(() => menuCategories, []);
 
   const closeDetails = () => setSelectedItem(null);
   useEscapeKey(Boolean(selectedItem), closeDetails);
@@ -142,7 +135,7 @@ export default function MenuPage() {
           </p>
         </div>
         <div className="menu-grid two-column">
-          {Object.entries(visibleCategories).map(([category, items]) => (
+          {Object.entries(menuCategories).map(([category, items]) => (
             <section className="menu-category" key={category}>
               <div className="menu-category-header">
                 <h2>{category}</h2>

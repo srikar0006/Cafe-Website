@@ -1,17 +1,5 @@
 import type { ReactNode } from 'react';
 
-export type MenuChoice = {
-  id: string;
-  label: string;
-  priceDelta: number;
-};
-
-export type MenuOptionGroup = {
-  id: string;
-  label: string;
-  choices: MenuChoice[];
-};
-
 export type MenuItem = {
   id: string;
   title: string;
@@ -19,14 +7,11 @@ export type MenuItem = {
   price: number;
   description: string;
   notes: string[];
-  tags: string[];
   badge: string;
   prepTime: string;
   pairing: string;
-  intensity: number;
   image: string;
   detail: string;
-  optionGroups: MenuOptionGroup[];
 };
 
 export type CartItem = MenuItem & {

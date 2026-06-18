@@ -1,21 +1,14 @@
 import { Link } from 'react-router-dom';
 import { useMemo, useState } from 'react';
 import { useCart } from '../context/useCart';
+import { formatPrice } from '../utils/formatPrice';
 import type { CartItem } from '../types';
-
-const formatPrice = (price: number) =>
-  new Intl.NumberFormat('en-IN', {
-    style: 'currency',
-    currency: 'INR',
-    maximumFractionDigits: 0,
-  }).format(price);
 
 type ServiceMode = 'pickup' | 'dine-in';
 
 type OrderSummary = {
   itemCount: number;
   mode: ServiceMode;
-  name: string;
   time: string;
   total: number;
 };
@@ -226,7 +219,6 @@ export default function CheckoutPage() {
               setOrderSummary({
                 itemCount,
                 mode: serviceMode,
-                name: customerName,
                 time: targetTime,
                 total: checkoutTotals.total,
               });
