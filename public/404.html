@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aura Coffee Roasters</title>
+    <script>
+      (function () {
+        var basePath = '/Cafe-Website/';
+        var path = location.pathname;
+
+        if (path.indexOf(basePath) === 0) {
+          sessionStorage.redirect = location.href;
+          location.replace(basePath);
+          return;
+        }
+
+        location.replace(basePath);
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>
